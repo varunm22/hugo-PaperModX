@@ -267,3 +267,10 @@ figure > img {
     width: inherit;
     height: inherit;
 }
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fill);
+  grid-row-gap: 0em;
+  grid-column-gap: 1em;
+}

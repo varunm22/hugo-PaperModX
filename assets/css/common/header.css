@@ -81,15 +81,6 @@ body:not(.dark) #sun {
 #menu a:hover {
     color: var(--primary);
 }
-
-#menu a.active:hover {
-    color: var(--signature);
-}
-#menu .active {
-    color: var(--signature);
-    box-shadow: 0 2px 0 var(--signature);
-}
-
 #menu .external-link {
     position: relative;
 }

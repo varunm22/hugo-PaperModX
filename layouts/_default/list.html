@@ -37,6 +37,7 @@
 {{- end }}
 {{- $pages = where $pages "Params.hidden" "!=" true }}
 
+<div class="container">
 {{/* related issue: https://github.com/gohugoio/hugo/issues/9003 */}}
 {{ $paginator := "" }}
 {{ if (.Param "paginate") }}
@@ -88,6 +89,7 @@
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}
+</div>
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
