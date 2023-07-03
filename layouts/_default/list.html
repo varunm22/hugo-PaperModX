@@ -33,7 +33,8 @@
 {{- $pages := .Pages }}
 {{- if .IsHome }}
   {{/* get all regular pages instead of pages in a section */}}
-  {{- $pages = where site.RegularPages "Section" "in" site.Params.mainSections }}
+  {{- $pages = site.Pages}}
+  {{- $pages = where $pages "Params.featured" "==" true }}
 {{- end }}
 {{- $pages = where $pages "Params.hidden" "!=" true }}
 
