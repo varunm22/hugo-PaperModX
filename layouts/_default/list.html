@@ -35,6 +35,8 @@
   {{/* get all regular pages instead of pages in a section */}}
   {{- $pages = site.Pages}}
   {{- $pages = where $pages "Params.featured" "==" true }}
+{{ else if (eq .File.Dir "all-posts/") }}
+  {{- $pages = where site.RegularPages "Section" "in" site.Params.mainSections }}
 {{- end }}
 {{- $pages = where $pages "Params.hidden" "!=" true }}
 
@@ -87,7 +89,11 @@
     {{- partial "post_meta.html" . -}}
   </footer>
   {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  {{ if isset .Params "externallink" }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.externallink }}"></a>
+  {{else}}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  {{ end }}
 </article>
 {{- end }}
 </div>
